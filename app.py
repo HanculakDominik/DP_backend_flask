@@ -6,9 +6,9 @@ from flask_cors import CORS
 
 
 class Person:
-  def __init__(self, pName, pImageName):
-    self.name = pName
-    self.imageName = pImageName
+    def __init__(self, pName, pImageName):
+        self.name = pName
+        self.imageName = pImageName
 
 
 app = Flask(__name__)
@@ -65,11 +65,11 @@ def questions():
 def positions():
     if request.method == 'POST':
         print(request.get_json(), file=sys.stderr)
-        with open("data/" + request.get_json()['imageName'][:-4] + ".txt", "a", encoding="utf-8") as f:
+        with open("data/" + request.get_json()['imageName'][:-4] + ".txt", "a",
+                  encoding="utf-8") as f:
             f.write(str(request.get_json()) + "\n")
         return {'success': True}, 200
 
 
 if __name__ == '__main__':
     app.run()
-
